@@ -1,11 +1,7 @@
 <style lang="scss">
   .ar {
-    width: 420px;
+    width: 100%;
     font-family: 'Roboto', sans-serif;
-    border-radius: 16px;
-    background-color: #FAFAFA;
-    box-shadow: 0 4px 18px 0 rgba(0,0,0,0.17);
-    position: relative;
     box-sizing: content-box;
 
     &-content {
@@ -17,7 +13,7 @@
 
     &-records {
       height: 138px;
-      padding-top: 1px;
+      padding-top: 40px;
       overflow-y: auto;
       margin-bottom: 20px;
 
@@ -29,13 +25,9 @@
         line-height: 45px;
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px solid #E8E8E8;
         position: relative;
 
         &--selected {
-          border: 1px solid #E8E8E8;
-          border-radius: 24px;
-          background-color: #FFFFFF;
           margin-top: -1px;
           padding: 0 34px;
         }
@@ -45,7 +37,7 @@
     &-recorder {
       position: relative;
       display: flex;
-      flex-direction: column;
+      //flex-direction: column;
       align-items: center;
 
       &__duration {
@@ -63,10 +55,9 @@
       }
 
       &__time-limit {
-        position: absolute;
         color: #AEAEAE;
         font-size: 12px;
-        top: 128px;
+        padding-left: 10px ;
       }
 
       &__records-limit {
@@ -149,7 +140,8 @@
 
     &__rm {
       cursor: pointer;
-      position: absolute;
+      //position: absolute;
+      font-size: 18px;
       width: 6px;
       height: 6px;
       padding: 6px;
@@ -200,15 +192,18 @@
             'ar-icon--pulse': isRecording && volume > 0.02
           }"
           @click.native="toggleRecorder"/>
+
+          <div class="ar-recorder__time-limit" v-if="time && isRecording">{{recordedTime}} / {{time}}m</div>
+
         <icon-button
+          v-if="isRecording"
           class="ar-icon ar-icon__sm ar-recorder__stop"
           name="stop"
           @click.native="stopRecorder"/>
       </div>
 
-      <div class="ar-recorder__records-limit" v-if="attempts">Attempts: {{attemptsLeft}}/{{attempts}}</div>
-      <div class="ar-recorder__duration">{{recordedTime}}</div>
-      <div class="ar-recorder__time-limit" v-if="time">Record duration is limited: {{time}}m</div>
+      <!-- <div class="ar-recorder__records-limit" v-if="attempts">Attempts: {{attemptsLeft}}/{{attempts}}</div> -->
+      <!-- <div class="ar-recorder__duration">{{recordedTime}}</div> -->
 
       <div class="ar-records">
         <div
@@ -216,31 +211,33 @@
           :class="{'ar-records__record--selected': record.id === selected.id}"
           :key="record.id"
           v-for="(record, idx) in recordList"
-          @click="choiceRecord(record)">
-            <div
+          >
+
+            <audio-player :record="selected"/>
+
+              <div
               class="ar__rm"
               v-if="record.id === selected.id"
               @click="removeRecord(idx)">&times;</div>
-            <div class="ar__text">Record {{idx + 1}}</div>
-            <div class="ar__text">{{record.duration}}</div>
+        </div>
 
-            <downloader
-              v-if="record.id === selected.id && showDownloadButton"
+        <!-- <div>
+          <downloader
+              v-if="selected.id && showDownloadButton"
               class="ar__downloader"
-              :record="record"
+              :record="selected"
               :filename="filename"/>
 
             <uploader
-              v-if="record.id === selected.id && showUploadButton"
+              v-if="selected.id && showUploadButton"
               class="ar__uploader"
-              :record="record"
+              :record="selected"
               :filename="filename"
               :headers="headers"
               :upload-url="uploadUrl"/>
-        </div>
+        </div> -->
       </div>
 
-      <audio-player :record="selected"/>
     </div>
   </div>
 </template>
@@ -327,7 +324,8 @@
         }
 
         this.recorder.stop()
-        this.recordList = this.recorder.recordList()
+        this.recordList = this.recorder.recordList();
+        this.choiceRecord(this.recordList[0])
       },
       removeRecord (idx) {
         this.recordList.splice(idx, 1)

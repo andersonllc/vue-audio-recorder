@@ -5,7 +5,7 @@
   "author": "Gennady Grishkovtsov <grishkovelli@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --env.NODE_ENV=development --mode development --open --hot --https",
+    "dev": "webpack-dev-server --env.NODE_ENV=development --mode development --open --hot",
     "build": "webpack --env.NODE_ENV=production --mode production --progress --hide-modules"
   },
   "dependencies": {
@@ -40,7 +40,7 @@
   "main": "dist/vue-audio-recorder.min.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/grishkovelli/vue-audio-recorder.git"
+    "url": "git+https://github.com/andersonllc/vue-audio-recorder.git"
   },
   "keywords": [
     "vue",
@@ -49,7 +49,7 @@
     "microphone"
   ],
   "bugs": {
-    "url": "https://github.com/grishkovelli/vue-audio-recorder/issues"
+    "url": "https://github.com/andersonllc/vue-audio-recorder/issues"
   },
-  "homepage": "https://github.com/grishkovelli/vue-audio-recorder#readme"
+  "homepage": "https://github.com/andersonllc/vue-audio-recorder#readme"
 }

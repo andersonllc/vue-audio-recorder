@@ -1,6 +1,6 @@
 <style lang="scss">
   .ar-player {
-    width: 380px;
+    width: 320px;
     height: unset;
     border: 0;
     border-radius: 0;
@@ -17,7 +17,7 @@
       margin: 0 0 0 5px;
 
       & > .ar-player__progress {
-        width: 125px;
+        width: 70px;
       }
     }
 
@@ -30,7 +30,6 @@
     }
 
     &-actions {
-      width: 55%;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -79,14 +78,14 @@
     </div>
 
     <div class="ar-player-bar">
-      <div class="ar-player__time">{{playedTime}}</div>
+      <!-- <div class="ar-player__time">{{playedTime}}</div> -->
       <line-control
         class="ar-player__progress"
         ref-id="progress"
         :percentage="progress"
         @change-linehead="_onUpdateProgress"/>
       <div class="ar-player__time">{{duration}}</div>
-      <volume-control @change-volume="_onChangeVolume"/>
+      <!-- <volume-control @change-volume="_onChangeVolume"/> -->
     </div>
 
     <audio :id="playerUniqId" :src="audioSource"></audio>
