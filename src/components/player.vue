@@ -50,7 +50,6 @@
       width: 45px;
       height: 45px;
       background-color: #FFFFFF;
-      box-shadow: 0 2px 11px 11px rgba(0,0,0,0.07);
 
       &--active {
         fill: white !important;
@@ -69,16 +68,18 @@
 <template>
   <div class="ar-player">
     <div class="ar-player-actions">
-      <icon-button
-        id="play"
-        class="ar-icon ar-icon__lg ar-player__play"
-        :name="playBtnIcon"
-        :class="{'ar-player__play--active': isPlaying}"
-        @click.native="playback"/>
+      
     </div>
 
     <div class="ar-player-bar">
       <!-- <div class="ar-player__time">{{playedTime}}</div> -->
+      <icon-button
+        id="play"
+        class="ar-icon ar-icon__sm ar-player__play"
+        :name="playBtnIcon"
+        :class="{'ar-player__play--active': isPlaying}"
+        @click.native="playback"/>
+
       <line-control
         class="ar-player__progress"
         ref-id="progress"

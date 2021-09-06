@@ -13,7 +13,7 @@
 
     &-records {
       height: 138px;
-      padding-top: 40px;
+      padding-top: 0px;
       overflow-y: auto;
       margin-bottom: 20px;
 
@@ -183,7 +183,7 @@
     </div>
 
     <div class="ar-content" :class="{'ar__blur': isUploading}">
-      <div class="ar-recorder">
+      <div class="ar-recorder" v-if="!selected.url">
         <icon-button
           class="ar-icon ar-icon__lg"
           :name="iconButtonType"
@@ -196,6 +196,7 @@
           <div class="ar-recorder__time-limit" v-if="time && isRecording">{{recordedTime}} / {{time}}m</div>
 
         <icon-button
+          style="border: solid 1px #777777"
           v-if="isRecording"
           class="ar-icon ar-icon__sm ar-recorder__stop"
           name="stop"
