@@ -12,10 +12,8 @@
     }
 
     &-records {
-      height: 138px;
       padding-top: 0px;
       overflow-y: auto;
-      margin-bottom: 20px;
 
       &__record {
         width: 320px;
