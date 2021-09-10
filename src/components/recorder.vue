@@ -20,7 +20,7 @@
         height: 45px;
         padding: 0 10px;
         margin: 0 auto;
-        line-height: 45px;
+        //line-height: 45px;
         display: flex;
         justify-content: space-between;
         position: relative;
@@ -142,8 +142,8 @@
       font-size: 18px;
       width: 6px;
       height: 6px;
-      padding: 6px;
-      line-height: 6px;
+      //padding: 6px;
+      //line-height: 6px;
       margin: auto;
       left: 10px;
       bottom: 0;
