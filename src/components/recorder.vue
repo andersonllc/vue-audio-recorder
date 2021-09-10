@@ -141,7 +141,7 @@
       //position: absolute;
       font-size: 18px;
       width: 6px;
-      height: 6px;
+      //height: 6px;
       //padding: 6px;
       //line-height: 6px;
       margin: auto;
@@ -194,7 +194,6 @@
           <div class="ar-recorder__time-limit" v-if="time && isRecording">{{recordedTime}} / {{time}}m</div>
 
         <icon-button
-          style="border: solid 1px #777777"
           v-if="isRecording"
           class="ar-icon ar-icon__sm ar-recorder__stop"
           name="stop"
