@@ -75,6 +75,7 @@
       <!-- <div class="ar-player__time">{{playedTime}}</div> -->
       <icon-button
         id="play"
+        style="margin-top: -3px"
         class="ar-icon ar-icon__sm ar-player__play"
         :name="playBtnIcon"
         :class="{'ar-player__play--active': isPlaying}"
