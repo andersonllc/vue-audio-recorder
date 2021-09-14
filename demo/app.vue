@@ -43,7 +43,7 @@
     },
     methods: {
       callback (msg) {
-        console.debug('Event: ', msg)
+        console.log('Event: ', msg.url)
       },
       toggle () {
         this.showRecorder = !this.showRecorder

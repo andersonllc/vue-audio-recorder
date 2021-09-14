@@ -193,11 +193,11 @@
 
           <div class="ar-recorder__time-limit" v-if="time && isRecording">{{recordedTime}} / {{time}}m</div>
 
-        <icon-button
+        <!-- <icon-button
           v-if="isRecording"
           class="ar-icon ar-icon__sm ar-recorder__stop"
           name="stop"
-          @click.native="stopRecorder"/>
+          @click.native="stopRecorder"/> -->
       </div>
 
       <!-- <div class="ar-recorder__records-limit" v-if="attempts">Attempts: {{attemptsLeft}}/{{attempts}}</div> -->
@@ -313,7 +313,8 @@
         if (!this.isRecording || (this.isRecording && this.isPause)) {
           this.recorder.start()
         } else {
-          this.recorder.pause()
+          //this.recorder.pause()
+          this.stopRecorder()
         }
       },
       stopRecorder () {
